@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>添加活动信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+		<script src="__JS__/jquery.js"></script>
+<script src="__JS__/basic.js"></script>
+    <script type="text/javascript">
+     $(function(){
+        $('input[name="p_id"]').blur(function(){
+          var p_id=$(this).val();
+            $.get('__URL__/checkId',{'p_id':p_id},function(data){
+            //alert(data);
+            if(data=='超界'){
+              $('#id').html('编号应由6位的数字组成');
+            }else if(data=='已存在'){
+              $('#id').html('该编号已存在');
+            }else{
+              $('#id').html('');
+            }
+          });
+        });
+      });
+    </script>
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">添加活动信息</h2>
+    </div>
+    <form action='__URL__/do_add' method='post' name='myForm'>
+      <ul class="ulColumn">
+      <input type="hidden" name="a_exist" value="1"/> 
+      
+       <li>
+        <span class="item_name" style="width:120px;" placeholder="必填...">管理员编号：</span>
+        <input type="text" name="p_id" class="textbox textbox_295" placeholder="必填：由六位数字组成..."/>
+        <span id="id" class="errorTips"></span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;" placeholder="必填...">账号：</span>
+        <input type="text" name="p_username" class="textbox textbox_295" placeholder="必填：长度在6-12之间..."/>
+       </li>
+      <li>
+        <span class="item_name" style="width:120px;">密码：</span>
+        <input type="text" name="p_password" class="textbox textbox_295" placeholder="必填：长度在6-12之间..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">确认密码：</span>
+        <input type="text" name="p_verifypwd" class="textbox textbox_295" placeholder="必填：长度在6-12之间..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn" onclick="checkPwd()"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+	</body>
+</html>

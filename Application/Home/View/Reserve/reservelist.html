@@ -1,0 +1,30 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>订单餐桌记录</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+ 
+ </head>
+  <body>
+ <section>
+    <div class="page_title">
+     <h2 class="fl">订单餐桌记录</h2>
+    </div>
+    <div class="msg">
+    您的预定单号为:<{$res.n_id}><br/>
+    预定人数为:<{$res.n_usernumber}><br/>
+    顾客姓名为:<{$res.n_name}><br/>
+    联系电话为:<{$res.n_phone}><br/>
+    用餐时间为:<{$res.n_usetime}><br/>
+    备注为:<{$res.n_description}><br/>
+    已交定金为：<{$res.n_money}><br/>
+     <a href="__URL__/do_delete?n_id=<{$n_id}>" class="link_btn">确认取消预定</a>
+   </div>
+   
+   </section> 
+  </body>
+</html>

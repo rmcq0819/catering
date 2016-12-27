@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>修改预定信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+		
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">修改预定信息</h2>
+    </div>
+     
+    <form action='__URL__/do_modify' method='post' name='myForm'>
+      <ul class="ulColumn">
+       <li>
+        <input type="hidden" name="n_id" value="<{$r.n_id}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">预定时间：</span>
+        <input type="text" name="n_reservetime" value="<{$r.n_reservetime}>" class="textbox textbox_295" />
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">预定人数：</span>
+        <input type="text" name="n_usernumber" value="<{$r.n_usernumber}>" class="textbox textbox_295" />
+       </li>
+            <li>
+        <span class="item_name" style="width:120px;">顾客姓名：</span>
+        <input type="text" name="n_name" value="<{$r.n_name}>" class="textbox textbox_295" />
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">电话：</span>
+        <input type="text" name="n_phone" value="<{$r.n_phone}>" class="textbox textbox_295" />
+       </li>
+              <li>
+        <span class="item_name" style="width:120px;">定金：</span>
+        <input type="text" name="n_money" value="<{$r.n_money}>" class="textbox textbox_295" />
+       </li>
+                      <li>
+        <span class="item_name" style="width:120px;">状态：</span>
+        <input type="text" name="n_state" value="<{$r.n_state}>" class="textbox textbox_295" />
+       </li>
+                         <li>
+        <span class="item_name" style="width:120px;">用餐时间：</span>
+        <input type="text" name="n_usetime" value="<{$r.n_usetime}>" class="textbox textbox_295" />
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">备注：</span>
+        <textarea name="n_description" class="textarea" style="width:500px;height:100px;"><{$r.n_description}></textarea>
+       </li>
+      
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+  </body>
+</html>

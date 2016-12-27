@@ -1,0 +1,64 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>最新菜品</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+    
+</head>
+  <body>
+  <section>
+    <div class="page_title">
+     <h2 class="fl">最新菜品</h2>
+    </div>
+       <center>
+     <form action='__URL__/search_new' method='get'>
+    请输入菜品名称关键字:
+      <input type="text" name="condi" id="condi" value="<{$condi}>"/>
+      <input type='submit' value='搜索'/>
+    </form></center>
+ <foreach name='list' item='v'>
+    <table class="table">
+		<tr>
+			<td rowspan="3" width="25%">
+				<center><img src="__IMAGES__/<{$v.d_pic}>" width="260px"/></center>
+			</td>
+			<td rowspan="3" width="25%">
+				 简介：<{$v.d_description}>
+			</td>
+			<td width="25%">
+				【 菜&nbsp;&nbsp; 名 】
+			</td>
+				
+			<td width="25%">
+				<{$v.d_name}>
+			</td>
+		</tr>
+		<tr>
+			<td >
+				【 原&nbsp;&nbsp; 价 】
+			</td>
+			<td >
+				￥<{$v.d_price}>
+			</td>
+		</tr>
+		<tr>
+			<td >
+				【 折扣价 】
+			</td>
+			<td >
+				￥<{$v.d_disprice}>
+			</td>
+		</tr>
+	</table>
+	</foreach>
+<aside class="paging">
+<{$show}>
+</aside>
+</section> 
+  </body>
+</html>
+   

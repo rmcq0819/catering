@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>注册会员</title>
+<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+  <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+<!--header-->
+<header>
+</header>
+<body>
+  <section>
+    <div class="page_title">
+     <h2 class="fl"><center>注册会员</center></h2>
+    </div>
+    <div class="reg">
+      注册步骤:
+    1.填写信息&gt; <span style="color:red">2.验证邮箱 </span> &gt; 3.注册成功
+    </div>
+    <div class="msg">
+          感谢您注册！现在请按以下步骤完成您的注册!<br/><br/>
+          第一步：查看您的电子邮箱<br/>          
+          我们给您发送了验证邮件，邮件地址为：
+          <a href="https://mail.qq.com/"><span style="color:red"><{$_GET['m_email']}>
+          </span></a>        
+          请登录您的邮箱收信。<br/><br/>           
+          第二步：输入验证码<br/>    
+          输入您收到邮件中的验证码：<br/><br/>
+    </div>
+    <form action='__URL__/do_register' method='post' name='myForm'>
+    <ul class="ulColumn">
+     <input type="hidden" name="m_openid" value="<{$_GET['m_openid']}>"/>
+      <input type="hidden" name="m_email" value="<{$_GET['m_email']}>"/>
+       <li>
+        <span class="item_name" style="width:120px;">验证码：</span>
+        <input type="text" name="code" class="textbox textbox_295"/>
+       </li>
+            
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+    </section>
+  </body>
+</html>
+ 

@@ -1,0 +1,111 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>餐桌菜品记录</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+          <script src="__JS__/jquery.js"></script>
+    <script type="text/javascript">      
+    function modify_dishes(u_id,r_id){
+            var u_account=$("#u_account").val();
+            if(u_account<1){
+              alert('修改的数量需大于0');
+            }else{
+               $.get('__URL__/do_modify',{'u_id':u_id,'u_account':u_account,'r_id':r_id},function(data){
+                alert(data);
+                   window.location.reload();//刷新当前页面.
+                            
+             });
+         }     
+    }
+
+        function do_urgent(u_id){
+               $.get('__URL__/do_urgent',{'u_id':u_id},function(data){
+               //alert(data);
+               if(data=='成功'){ 
+                  alert('您已成功催菜！');               
+                }else{
+                   alert('催菜失败，失败的原因可能是您操作已达上限！');   
+                }            
+             });
+         }     
+           function do_waiter(r_id){
+               $.get('__APP__/Home/Waiter/do_waiter',{'r_id':r_id},function(data){
+               alert(data);       
+             });
+         } 
+    </script> 
+ </head>
+  <body>
+ <section>
+    <div class="page_title">
+     <h2 class="fl">餐桌菜品记录</h2>
+    </div>
+  您当前消费总金额为：￥<{$amount}>，优惠后总金额为￥<{$disamount}>
+ <a onclick="do_waiter('<{$r_id}>');" class="link_btn">呼叫服务员</a><br/>
+
+
+       
+        <if condition="($finish eq 1)"> <a href="__APP__/Home/Orders/orderlist?o_id=<{$o_id}>" class="link_btn">去结账</a><else /> 
+        <div style="float: right">
+           
+            <form action='__URL__/dishesIndex' method='get' name='myForm'>
+            <input type="hidden" name="r_id" value="<{$r_id}>" />
+            <input type="submit" class="link_btn" value="去加菜" />
+           </form>
+          
+        </div>
+
+        <div style="float: right;margin-left: 20px;" >
+           <a href="__URL__/do_euse?r_id=<{$r_id}>&amount=<{$amount}>&disamount=<{$disamount}>&o_id=<{$o_id}>" class="link_btn" >用餐结束</a>
+        </div>
+         <table class="table">
+     <tr>
+      <th>菜品编号</th>
+      <th>菜品名称</th>
+      <th>原价</th>
+      <th>促销价</th>
+      <th>数量</th>
+    
+      <th>总额</th>
+      <th>折后总额</th>
+      <th>口味</th>
+       <th>状态</th>
+      <th>操作</th>
+     </tr>
+    <foreach name='list' item='v'>
+     <tr>
+      <td><center><{$v.d_id}></center></td>
+      <td><center><{$v.u_dish}></center></td>
+       <td><center>￥<{$v.u_price}></center></td>
+      <td><center>￥<{$v.u_disprice}></center></td>
+       <td ><center><input type="text" name="u_account" id="u_account" value="<{$v.u_account}>"/>
+       <a  onclick="modify_dishes('<{$v.u_id}>','<{$r_id}>');" class="inner_btn">修改</a>
+       </center></td>
+     
+       <td><center>￥<{$v.u_amount}></center></td>
+         <td><center>￥<{$v.u_disamount}></center></td>
+      <td><center><{$v.u_flavor}></center></td>
+       <td><center><{$v.u_state}></center></td>
+      <td><center>
+      <if condition="($v.u_state eq '已点')"> <a href="__URL__/do_delete?u_id=<{$v.u_id}>&r_id=<{$r_id}>" class="inner_btn" onclick=" return confirm('确定删除?');">删除</a> 
+      <a class="inner_btn" onclick="do_urgent('<{$v.u_id}>');">催菜</a>  </if>
+      </center></td>
+     </tr>
+    </foreach>
+    </table>
+
+    <aside class="paging">
+    <{$show}>
+    </aside>
+
+
+  </if>
+       
+      
+   </section> 
+  </body>
+</html>

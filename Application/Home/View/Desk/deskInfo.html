@@ -1,0 +1,156 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>餐桌信息</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+  <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+</head>
+  <body>
+  <section>
+    <div class="page_title">
+     <h2 class="fl">餐桌信息</h2>
+    </div>
+     <ul class="ulColumn">
+      <form action='__APP__/Home/Reserve/reserve' method='post' name='myForm'>
+      <li>
+      <span class="item_name" style="width:120px;">请选择用餐时间：</span>
+       <select class="select" name="b_time">
+          <option  value="b_monbreakfast">周一早上</option>
+          <option  value="b_monlunch"  selected="selected">周一中午</option>
+          <option  value="b_monsupper">周一晚上</option>
+          <option  value="b_tuebreakfast">周二早上</option>
+          <option  value="b_tuelunch">周二中午</option>
+          <option  value="b_tuesupper">周二晚上</option> 
+          <option  value="b_wedbreakfast">周三早上</option>
+          <option  value="b_wedlunch">周三中午</option>
+          <option  value="b_wedsupper">周三晚上</option>
+          <option  value="b_thubreakfast">周四早上</option>
+          <option  value="b_thulunch">周四中午</option>
+          <option  value="b_thusupper">周四晚上</option>
+          <option  value="b_fribreakfast">周五早上</option>
+          <option  value="b_frilunch">周五中午</option>
+          <option  value="b_frisupper">周五晚上</option>
+          <option  value="b_satbreakfast">周六早上</option>
+          <option  value="b_satlunch">周六中午</option>
+          <option  value="b_satsupper">周六晚上</option>
+          <option  value="b_sunbreakfast">周日早上</option>
+          <option  value="b_sunlunch">周日中午</option>
+          <option  value="b_sunsupper">周日晚上</option>          
+        </select>
+        <input type="submit" class="link_btn" value="去预定" />
+       </li>  
+       </form>
+       </ul>
+   
+       <table class="table">
+     <tr>
+      <th>编号</th>
+      <th>座位数</th>
+      <th>定金</th>
+      <th>区域</th>
+      <th>周一早上</th>
+      <th>周一中午</th>
+      <th>周一晚上</th>
+      <th>周二早上</th>
+      <th>周二中午</th>
+      <th>周二晚上</th>
+      <th>周三早上</th>
+      <th>周三中午</th>
+      <th>周三晚上</th>
+      <th>周四早上</th>
+      <th>周四中午</th>
+      <th>周四晚上</th>
+      <th>周五早上</th>
+      <th>周五中午</th>
+      <th>周五晚上</th>
+      <th>周六早上</th>
+      <th>周六中午</th>
+      <th>周六晚上</th>
+      <th>周日早上</th>
+      <th>周日中午</th>
+      <th>周日晚上</th>
+
+     </tr>
+    <foreach name='list' item='v'>
+     <tr>
+
+      <td><center><{$v.b_id}></center></td>
+      <td><center><{$v.b_seats}></center></td>
+      <td><center><{$v.b_deposit}></center></td>
+      <td><center><{$v.b_block}></center></td>
+      <td><center>
+		<if condition="($v.b_monbreakfast eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_monlunch eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_monsupper eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_tuebreakfast eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_tuelunch eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_tuesupper eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_wedbreakfast eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_wedlunch eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_wedsupper eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_thubreakfast eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_thulunch eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_thusupper eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_fribreakfast eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_frilunch eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_frisupper eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_satbreakfast eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_satlunch eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_satsupper eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_sunbreakfast eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_sunlunch eq 1)"> -<else /><span style="color:red">可预定</span></if>
+      </center></td>
+      <td><center>
+		<if condition="($v.b_sunsupper eq 1)"> -<else /> <span style="color:red">可预定</span></if>
+      </center></td>
+     </tr>
+    </foreach>
+    </table>
+    <aside class="paging">
+<{$show}>
+</aside>
+</section> 
+  </body>
+</html>
+    

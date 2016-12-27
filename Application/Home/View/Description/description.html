@@ -1,0 +1,48 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>餐馆简介</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+    <script src="__JS__/jquery.js"></script>
+    <script src="__JS__/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript"> 	
+    	(function($){
+    	$(window).load(function(){
+      
+      $("a[rel='load-content']").click(function(e){
+        e.preventDefault();
+        var url=$(this).attr("href");
+        $.get(url,function(data){
+          $(".content .mCSB_container").append(data); //load new content inside .mCSB_container
+          //scroll-to appended content 
+          $(".content").mCustomScrollbar("scrollTo","h2:last");
+        });
+      });
+      
+      $(".content").delegate("a[href='top']","click",function(e){
+        e.preventDefault();
+        $(".content").mCustomScrollbar("scrollTo",$(this).attr("href"));
+      });
+      
+    });
+  })(jQuery);
+    </script>
+</head>
+  <body>
+   <div class="bg"><img src="__IMAGES__/bg.jpg" /></div> 
+  <section class="description content mCustomScrollbar" >
+
+  <div class="words">
+  <h1 style="font-size: 50px"><center>餐管简介</center></h1>
+  <p  style="font-size: 45px">本饭店位于北京繁华的西四环世纪商圈，按准四星级标准装潢建设，环境幽雅，地理位置优越，3000余平方米的营业面积，适合亲朋聚会、商务洽谈、团队会议、寿婚宴会、经典湘菜、养生粤菜，热情而周到的人性化服务，高雅舒适的环境是您宴请，轻松，浪漫，品味美食的最佳场所。鱼水环绕，文化蕴藏，让您在享受美食的同时又能身心得到熏陶。</p>
+  <p style="font-size: 45px">本公司打破传统理念，张扬个性，炮制独特内涵，携手名厨烹调纯粹的私家中式菜肴，一场永不落幕的豪门飨宴，等待您的光临。随着现代人对餐饮界的更高要求，庭院雅膳必将成为现代餐饮的特色享受。</p>
+ </div>
+
+</section> 
+  </body>
+</html>
+   

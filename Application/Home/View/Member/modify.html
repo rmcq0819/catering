@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>修改会员信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">修改会员信息</h2>
+    </div>
+    <form action='__URL__/do_modify' method='post' name='myForm'>
+      <ul class="ulColumn">
+       <li>
+        <input type="hidden" name="m_id" value="<{$_GET['m_id']}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">邮箱：</span>
+        <input type="text" name="m_email" class="textbox textbox_295" value="<{$_GET['m_email']}>" />
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;" ></span>
+        <input type="submit" class="link_btn" value="修改"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+  </body>
+</html>

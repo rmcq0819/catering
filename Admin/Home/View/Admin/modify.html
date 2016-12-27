@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>修改管理员信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+    <script src="__JS__/jquery.js"></script>
+  <script src="__JS__/basic.js"></script>
+    <script type="text/javascript">
+     $(function(){
+        $('input[name="p_password"]').blur(function(){
+          var p_password=$(this).val();
+           
+            if(p_password==''){
+              $('#p_password').html('必填！');
+            }else{
+               $('#p_password').html('');
+            }
+        });
+
+
+         $('input[name="p_npwd"]').blur(function(){
+          var p_password=$(this).val();
+           
+            if(p_password==''){
+              $('#p_npwd').html('必填！');
+            }else{
+               $('#p_npwd').html('');
+            }
+        });
+         $('input[name="p_verifypwd"]').blur(function(){
+          var p_password=$(this).val();
+           
+            if(p_password==''){
+              $('#p_verifypwd').html('必填！');
+            }else{
+               $('#p_verifypwd').html('');
+            }
+        });
+
+      });
+    </script>
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">修改管理员信息</h2>
+    </div>
+  
+    <form action='__URL__/do_modify' method='post' name='myForm'>
+    <ul class="ulColumn">
+       <li>
+        <input type="hidden" name="p_id" value="<{$a.p_id}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">账号：</span>
+        <input type="text" name="p_username" class="textbox textbox_295" value="<{$a.p_username}>"/>
+       </li>
+      <li>
+        <span class="item_name" style="width:120px;">原密码：</span>
+        <input type="password" name="p_password" class="textbox textbox_295"/>
+         <span id="p_password" class="errorTips"></span>
+       </li>
+        <li>
+        <span class="item_name" style="width:120px;">新密码：</span>
+        <input type="password" name="p_npwd" class="textbox textbox_295"/>
+         <span id="p_npwd" class="errorTips"></span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">确认密码：</span>
+        <input type="password" name="p_verifypwd" class="textbox textbox_295"/>
+         <span id="p_verifypwd" class="errorTips"></span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn" onclick="modifyPwd()"/>
+       </li>
+      </ul>
+      </form>
+
+   <a href="__URL__/add" class="link_btn" style="margin-left: 125px">添加</a>
+
+     </section>
+  </body>
+</html>

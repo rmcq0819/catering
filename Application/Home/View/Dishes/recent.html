@@ -1,0 +1,97 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>最新菜品</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+      <script src="__JS__/jquery.js"></script>
+    <script type="text/javascript">      
+    function select_dishes(d_id,r_id){
+    		var u_flavor=$("#u_flavor"+d_id+":checked").val();
+            $.get('__URL__/add_dishes',{'d_id':d_id,'r_id':r_id,'u_flavor':u_flavor},function(data){
+            //alert(data);
+           if(data=='成功'){
+              $("#selectinfo_error"+d_id).html("");
+              $("#selectinfo"+d_id).html("√添加购买成功");
+              //setTimeout(function(){$("#selectinfo"+d_id).html("");},2000);
+            }else{
+              $("#selectinfo"+d_id).html("");
+              $("#selectinfo_error"+d_id).html("×添加购买失败");
+              //setTimeout(function(){$("#selectinfo_error"+d_id).html("");},2000);
+            }
+           	return false;
+        });
+    }
+    </script> 
+</head>
+  <body>
+  <section>
+    <div class="page_title">
+     <h2 class="fl">最新菜品</h2>
+    </div>
+       <center>
+     <form action='__URL__/search_new' method='get'>
+    请输入菜品名称关键字:
+    	 <input type="hidden" name="r_id" value="<{$r_id}>"/>
+      <input type="text" name="condi" id="condi" value="<{$condi}>"/>
+      <input type='submit' value='搜索'/>
+    </form></center>
+ <foreach name='list' item='v'>
+    <table class="table">
+		<tr>
+			<td rowspan="3" width="25%">
+				<center><img src="__IMAGES__/<{$v.d_pic}>" width="260px"/></center>
+			</td>
+			<td rowspan="3" width="25%">
+				 简介：<{$v.d_description}>
+			</td>
+			<td width="25%">
+				【 菜&nbsp;&nbsp; 名 】
+			</td>
+				
+			<td width="25%">
+				<{$v.d_name}>
+			</td>
+		</tr>
+		<tr>
+			<td >
+				【 原&nbsp;&nbsp; 价 】
+			</td>
+			<td >
+				￥<{$v.d_price}>
+			</td>
+		</tr>
+		<tr>
+			<td >
+				【 折扣价 】
+			</td>
+			<td >
+				￥<{$v.d_disprice}>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">
+			<center>
+				<label class="single_selection"><input type="radio" name="u_flavor<{$v.d_id}>" id="u_flavor<{$v.d_id}>" value='1'/>原味</label>
+	        	<label class="single_selection"><input type="radio" name="u_flavor<{$v.d_id}>" id="u_flavor<{$v.d_id}>" value='2' checked="checked"/>微辣</label>
+	        	<label class="single_selection"><input type="radio" name="u_flavor<{$v.d_id}>" id="u_flavor<{$v.d_id}>" value='3'/>中辣</label>
+	        	<label class="single_selection"><input type="radio" name="u_flavor<{$v.d_id}>" id="u_flavor<{$v.d_id}>" value='4'/>超辣</label>
+				
+				<a onclick="select_dishes('<{$v.d_id}>','<{$r_id}>');" class="inner_btn"> 购买</a>
+				<span id="selectinfo<{$v.d_id}>" style="color:green;"></span>
+      			<span id="selectinfo_error<{$v.d_id}>" style="color:red;"></span>
+			</center>
+			</td>
+		</tr>
+	</table>
+	</foreach>
+<aside class="paging">
+<{$show}>
+</aside>
+</section> 
+  </body>
+</html>
+   

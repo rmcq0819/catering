@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>添加服务员信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+		<script src="__JS__/jquery.js"></script>
+    <script type="text/javascript">
+     $(function(){
+        $('input[name="w_id"]').blur(function(){
+          var w_id=$(this).val();
+            $.get('__URL__/checkId',{'w_id':w_id},function(data){
+            //alert(data);
+            if(data=='超界'){
+              $('#id').html('编号应由6位的数字组成');
+            }else if(data=='已存在'){
+              $('#id').html('该编号已存在');
+            }else{
+              $('#id').html('');
+            }
+          });
+        });
+      });
+    </script>
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">添加服务员信息</h2>
+    </div>
+    <form action='__URL__/do_add' method='post' name='myForm'>
+      <ul class="ulColumn">
+      <input type="hidden" name="w_exist" value="1"/> 
+       <input type="hidden" name="w_state" value="空闲"/> 
+       <li>
+        <span class="item_name" style="width:120px;">编号：</span>
+        <input type="text" name="w_id" class="textbox textbox_295" placeholder="必填：由6位的数字组成..."/> 
+         <span id="id" class="errorTips"></span> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">姓名：</span>
+        <input type="text" name="w_name" class="textbox textbox_295" placeholder="必填：长度不超过10..."/>
+       </li>
+      <li>
+        <span class="item_name" style="width:120px;">年龄：</span>
+        <input type="text" name="w_age" class="textbox textbox_295" placeholder="必填：范围在18-60之间..."/>
+       </li>
+        <li>
+        <span class="item_name" style="width:120px;">性别：</span>
+        <label class="single_selection"><input type="radio" name="w_sex" value='1' checked="checked"/>男</label>
+        <label class="single_selection"><input type="radio" name="w_sex" value='0'/>女</label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+	</body>
+</html>

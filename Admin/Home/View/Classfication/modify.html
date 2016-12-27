@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>修改菜品分类信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+	
+
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">修改菜品分类信息</h2>
+    </div>
+    <form action='__URL__/do_modify' method='post' name='myForm'>
+      <ul class="ulColumn">
+      <input type="hidden" name="c_id" value="<{$cf.c_id}>"/>
+       <li>
+        <span class="item_name" style="width:120px;">名称：</span>
+        <input type="text" name="c_name" class="textbox textbox_295" value="<{$cf.c_name}>"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>修改订单信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+	
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">修改订单信息</h2>
+    </div>
+    <form action='__URL__/do_modify' method='post' name='myForm'>
+      <ul class="ulColumn">
+       <li>
+        <input type="hidden" name="o_id" value="<{$o.o_id}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">会员编号：</span>
+        <input type="text" name="m_id" class="textbox textbox_295" value="<{$o.m_id}>"/>
+       </li>
+
+            <li>
+        <span class="item_name" style="width:120px;">服务员编号：</span>
+        <input type="text" name="w_id" class="textbox textbox_295" value="<{$o.w_id}>"/> 
+       </li>
+        <li>
+        <span class="item_name" style="width:120px;">下单时间：</span>
+        <input type="text" name="o_time" class="textbox textbox_295" value="<{$o.o_time}>"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">用餐人数：</span>
+        <input type="text" name="o_number" class="textbox textbox_295" value="<{$o.o_number}>"/>
+       </li>
+              <li>
+        <span class="item_name" style="width:120px;">应收款：</span>
+        <input type="text" name="o_receivable" class="textbox textbox_295" value="<{$o.o_receivable}>"/> 
+       </li>
+                   <li>
+        <span class="item_name" style="width:120px;">定金：</span>
+        <input type="text" name="o_deposit" class="textbox textbox_295" value="<{$o.o_deposit}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">实收款：</span>
+        <input type="text" name="o_received" class="textbox textbox_295" value="<{$o.o_received}>"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">总消费额：</span>
+        <input type="text" name="o_amount" class="textbox textbox_295" value="<{$o.o_amount}>"/>
+       </li>
+              <li>
+        <span class="item_name" style="width:120px;">会员优惠：</span>
+        <input type="text" name="o_discount" class="textbox textbox_295" value="<{$o.o_discount}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">积分：</span>
+        <input type="text" name="o_integral" class="textbox textbox_295" value="<{$o.o_integral}>"/>
+       </li>
+              <li>
+        <span class="item_name" style="width:120px;">结账时间：</span>
+        <input type="text" name="o_etime" class="textbox textbox_295" value="<{$o.o_etime}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">订单状态：</span>
+        <input type="text" name="o_state" class="textbox textbox_295" value="<{$o.o_state}>" />
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">餐桌数：</span>
+        <input type="text" name="o_tablenumber" class="textbox textbox_295" value="<{$o.o_tablenumber}>"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+  </body>
+</html>

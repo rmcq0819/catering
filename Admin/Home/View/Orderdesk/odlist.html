@@ -1,0 +1,65 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>订单餐桌记录</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+    <script src="__JS__/jquery.js"></script>
+    <script type="text/javascript">
+      window.onload=function(){  
+        $("#condi ").val(<{$condi}>); // 设置Select的Value值为<{$d.c_id}>的项选中 
+      }
+  
+    </script>
+ </head>
+  <body>
+ <section>
+    <div class="page_title">
+     <h2 class="fl">订单餐桌记录</h2>
+    </div>
+    <center>
+    <form action='__URL__/search' method='get'>
+    请选择搜索条件:
+      <select class="select" name="condi" id="condi">
+         <option  value="1">已入座</option>
+          <option  value="2">开始点餐</option>
+            <option  value="3">用餐毕</option>
+        </select>
+      <input type='submit' class="link_btn" value='搜索'/>
+    </form></center>
+    <table class="table">
+     <tr>
+      <th>编号</th>
+      <th>订单编号</th>
+      <th>餐桌编号</th>
+      <th>用餐时间</th>
+      <th>消费总额</th>
+      <th>折后总额</th>
+      <th>状态</th>
+      <th>操作</th>
+     </tr>
+    <foreach name='list' item='v'>
+     <tr>
+      <td><center><{$v.r_id}></center></td>
+      <td><center><{$v.o_id}></center></td>
+       <td><center><{$v.b_id}></center></td>
+      <td><center><{$v.r_time}></center></td>
+       <td><center><{$v.r_amount}></center></td>
+      <td><center><{$v.r_disamount}></center></td>
+       <td><center><{$v.r_state}></center></td>
+      <td><center>
+       <a href="__APP__/Home/Orderdesk/modify?r_id=<{$v.r_id}>" class="inner_btn">修改</a>
+       <a href="__APP__/Home/Orderdesk/do_delete?r_id=<{$v.r_id}>" class="inner_btn" onclick=" return confirm('确定删除?');">删除</a>
+      </center></td>
+     </tr>
+    </foreach>
+    </table>
+    <aside class="paging">
+    <{$show}>
+    </aside>
+   </section> 
+  </body>
+</html>

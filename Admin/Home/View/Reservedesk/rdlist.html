@@ -1,0 +1,42 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>预定餐桌记录</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+ </head>
+  <body>
+ <section>
+    <div class="page_title">
+     <h2 class="fl">预定餐桌记录</h2>
+    </div>
+    <table class="table">
+     <tr>
+      <th>编号</th>
+      <th>预定编号</th>
+      <th>餐桌编号</th>
+   
+      <th>操作</th>
+     </tr>
+    <foreach name='list' item='v'>
+     <tr>
+      <td><center><{$v.v_id}></center></td>
+      <td><center><{$v.n_id}></center></td>
+       <td><center><{$v.b_id}></center></td>
+     
+      <td><center>
+      
+       <a href="__APP__/Home/Reservedesk/do_delete?v_id=<{$v.v_id}>&n_id=<{$v.n_id}>" class="inner_btn" onclick=" return confirm('确定删除?');">删除</a>
+      </center></td>
+     </tr>
+    </foreach>
+    </table>
+    <aside class="paging">
+    <{$show}>
+    </aside>
+   </section> 
+  </body>
+</html>

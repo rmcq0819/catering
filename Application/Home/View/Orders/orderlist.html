@@ -1,0 +1,45 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>用餐状态</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+ </head>
+  <body>
+ <section>
+    <div class="page_title">
+     <h2 class="fl">用餐状态</h2>
+    </div>
+    <div style="margin-left: 20px">订单号：<{$o_id}>已交定金：<{$o_deposit}>还需交款：<{$o_receivable}></div>
+    <table class="table">
+     <tr>
+      <th>餐桌编号</th>
+      <th>消费总额</th>
+      <th>折后总额</th>
+      <th>状态</th>
+      <th>操作</th>
+     </tr>
+    <foreach name='list' item='v'>
+     <tr>
+       <td><center><{$v.b_id}></center></td>
+       <td><center><{$v.r_amount}></center></td>
+      <td><center><{$v.r_disamount}></center></td>
+       <td><center><{$v.r_state}></center></td>
+      <td><center>
+       <if condition="($v.r_state eq '用餐毕')"><else /> 
+       <a href="__URL__/do_euse?r_id=<{$v.r_id}>&o_id=<{$o_id}>" class="inner_btn">用餐结束</a></if>
+      
+      </center></td>
+     </tr>
+    </foreach>
+    </table>
+
+     <div style="float: right;"> 
+        <a href="__URL__/do_end?o_received=<{$o_receivable}>&o_id=<{$o_id}>" class="link_btn">确定</a>
+       </div>
+   </section> 
+  </body>
+</html>

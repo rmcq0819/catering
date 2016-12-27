@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>修改订单餐桌记录</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+	
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">修改订单餐桌记录</h2>
+    </div>
+   
+    <form action='__URL__/do_modify' method='post' name='myForm'>
+      <ul class="ulColumn">
+       <li>
+        <input type="hidden" name="o_id" value="<{$od.o_id}>"/> 
+        <input type="hidden" name="r_id" value="<{$od.r_id}>"/>
+        <input type="hidden" name="b_id" value="<{$od.b_id}>"/>
+       </li>
+
+      <li>
+        <span class="item_name" style="width:120px;">消费总额：</span>
+        <input type="text" name="r_amount" class="textbox textbox_295" value="<{$od.r_amount}>"/> 
+       </li>
+        <li>
+        <span class="item_name" style="width:120px;">折后总额：</span>
+        <input type="text" name="r_disamount" class="textbox textbox_295" value="<{$od.r_disamount}>"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">用餐时间：</span>
+        <input type="text" name="r_time" class="textbox textbox_295" value="<{$od.r_time}>"/>
+       </li>
+              <li>
+        <span class="item_name" style="width:120px;">状态：</span>
+        <input type="text" name="r_state" class="textbox textbox_295" value="<{$od.r_state}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+  </body>
+</html>

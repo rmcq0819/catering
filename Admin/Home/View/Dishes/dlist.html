@@ -1,0 +1,79 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>菜品信息</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+    <script src="__JS__/jquery.js"></script>
+    <script type="text/javascript">
+      window.onload=function(){  
+        $("#condi ").val(<{$condi}>); // 设置Select的Value值为<{$d.c_id}>的项选中 
+      }
+  
+    </script>
+  </head>
+  <body>
+ <section>
+    <div class="page_title">
+     <h2 class="fl">菜品信息</h2>
+    </div>
+    <center>
+
+    <form action='__URL__/search' method='get'>
+    请选择搜索条件:
+      <select class="select" name="condi" id="condi">
+         <option  value="1">新品</option>
+          <option  value="2">热销</option>
+        </select>
+      <input type='submit' class="link_btn" value='搜索'/>
+    </form></center>
+    <table class="table">
+     <tr>
+      <th>编号</th>
+      <th>名称</th>
+      <th>原价</th>
+      <th>现价</th>
+      <th>类别</th>
+      <th>供应数量</th>
+      <th>简介</th>
+      <th>图片</th>
+      <th>备注</th>
+       <th>是否新品</th>
+        <th>是否热销</th>
+      <th>操作</th>
+     </tr>
+    <foreach name='list' item='v'>
+     <tr>
+      <td><center><{$v.d_id}></center></td>
+      <td><center><{$v.d_name}></center></td>
+      <td><center><{$v.d_price}></center></td>
+      <td><center><{$v.d_disprice}></center></td>
+      <td><center><{$v.c_id}></center></td>
+      <td><center><{$v.d_account}></center></td>
+      <td><center><{$v.d_description}></center></td>
+
+      <td><center><img src="__IMAGES__/<{$v.d_pic}>" height="50px" weight="80px"/></center></td>
+      <td><center><{$v.d_extra}></center></td>
+              <td><center>
+         <if condition="($v.d_new eq '1')">是<else /> </if>
+       
+        </center></td>
+          <td><center>
+            <if condition="($v.d_hot eq '1')">是<else /> </if>
+          </center></td>
+      <td><center>
+       <a href="__APP__/Home/Dishes/modify?d_id=<{$v.d_id}>" class="inner_btn">修改</a>
+       <a href="__APP__/Home/Dishes/do_delete?d_id=<{$v.d_id}>" class="inner_btn" onclick=" return confirm('确定删除?');">删除</a>
+      </center></td>
+     </tr>
+    </foreach>
+    </table>
+    <aside class="paging">
+    <{$show}>
+    </aside>
+   </section> 
+  </body>
+</html>

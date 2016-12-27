@@ -1,0 +1,63 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>活动信息</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+  <script src="__JS__/jquery.js"></script>
+    <script type="text/javascript">
+      window.onload=function(){  
+        $("#condi ").val(<{$condi}>); // 设置Select的Value值为<{$d.c_id}>的项选中 
+      }
+  
+    </script>
+  </head>
+  <body>
+ <section>
+    <div class="page_title">
+     <h2 class="fl">活动信息</h2>
+    </div>
+       <center>
+    <form action='__URL__/search' method='get'>
+    请选择搜索条件:
+      <select class="select" name="condi" id="condi" >
+         <option  value="1">进行中</option>
+          <option  value="2">已结束</option>
+        </select>
+      <input type='submit' class="link_btn" value='搜索'/>
+    </form></center>
+    <table class="table">
+     <tr>
+      <th>编号</th>
+      <th>开始时间</th>
+      <th>结束时间</th>
+      <th>描述</th>
+      <th>状态</th>
+      <th>类型</th>
+      <th>操作</th>
+     </tr>
+    <foreach name='list' item='v'>
+     <tr>
+      <td><center><{$v.a_id}></center></td>
+      <td><center><{$v.a_startdate}></center></td>
+      <td><center><{$v.a_enddate}></center></td>
+      <td><center><{$v.a_description}></center></td>
+      <td><center><{$v.a_state}></center></td>
+      <td><center><{$v.a_classfication}></center></td>
+
+      <td><center>
+       <a href="__APP__/Home/Activity/modify?a_id=<{$v.a_id}>" class="inner_btn">修改</a>
+       <a href="__APP__/Home/Activity/do_delete?a_id=<{$v.a_id}>" class="inner_btn" onclick=" return confirm('确定删除?');">删除</a>
+      </center></td>
+     </tr>
+    </foreach>
+    </table>
+    <aside class="paging">
+    <{$show}>
+    </aside>
+   </section> 
+  </body>
+</html>

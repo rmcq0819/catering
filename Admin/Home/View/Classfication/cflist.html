@@ -1,0 +1,40 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>菜品分类信息</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+
+  
+  </head>
+  <body>
+ <section>
+    <div class="page_title">
+     <h2 class="fl">菜品分类信息</h2>
+    </div>
+    <table class="table">
+     <tr>
+      <th>编号</th>
+      <th>品称</th>
+      <th>操作</th>
+     </tr>
+    <foreach name='list' item='v'>
+     <tr>
+      <td><center><{$v.c_id}></center></td>
+      <td><center><{$v.c_name}></center></td>
+      <td><center>
+       <a href="__APP__/Home/Classfication/modify?c_id=<{$v.c_id}>" class="inner_btn">修改</a>
+       <a href="__APP__/Home/Classfication/do_delete?c_id=<{$v.c_id}>" class="inner_btn" onclick=" return confirm('确定删除?');">删除</a>
+      </center></td>
+     </tr>
+    </foreach>
+    </table>
+    <aside class="paging">
+    <{$show}>
+    </aside>
+   </section> 
+  </body>
+</html>

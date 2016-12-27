@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>注册会员</title>
+<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+  <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+<script src="__JS__/jquery.js"></script>
+<script type="text/javascript">
+  $(function(){
+        $('input[name="m_email"]').blur(function(){
+            var m_email=$(this).val();
+            if(m_email==''){
+              $("#email").html("邮箱地址不能为空！");
+            }else{
+               $.get('__URL__/checkEmail',{'m_email':m_email},function(data){
+            //alert(data);
+            if(data=='错误'){
+              $("#email").html("邮箱地址有误！");
+            }else{
+              $('#email').html("");
+            }
+          });
+            }
+           
+        });
+
+ 
+           
+       
+          $('input[name="code"]').blur(function(){
+          var code=$(this).val();
+          if(code==''){
+               $("#code").html("验证码不能为空！");
+          }else{
+            $.get('__URL__/checkCode',{'code':code},function(data){
+            //alert(code);
+            if(data=='错误'){
+               $("#code").html("验证码有误！");
+            }else{
+              $('#code').html("");
+            }
+          });
+          }
+            
+        });
+      });
+
+
+</script>
+</head>
+<body>
+<!--header-->
+<header>
+</header>
+<body>
+  <section>
+    <div class="page_title">
+     <h2 class="fl"><center>注册会员</center></h2>
+    </div>
+    <div class="reg">
+      注册步骤:
+    <span style="color:red">1.填写信息</span> &gt; 2.验证邮箱 &gt; 3.注册成功
+    </div>
+    <form action='__URL__/do_check' method='post' name='myForm'>
+    <ul class="ulColumn">
+        <input type="hidden" name="m_openid" value="<{$_GET['openid']}>"/>
+       <li>
+        <span class="item_name" style="width:120px;">邮箱：</span>
+        <input type="text" name="m_email" class="textbox textbox_295"/>
+        <span id="email" class="errorTips"></span>
+       </li>
+
+        <li>
+        <span class="item_name" style="width:120px;">验证码：</span>
+        <input type="text" name="code" class="textbox textbox_295"/>
+        <img width="100px" height="30px" class="verify" alt="验证码" src="__URL__/verify" title="点击刷新" onclick="this.src=this.src+'?'+Math.random()">
+         <span id="code" class="errorTips"></span>
+       </li>
+     
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+    </section>
+  </body>
+</html>
+ 

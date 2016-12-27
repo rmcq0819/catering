@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>Index</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+		<script src="__JS__/jquery.js"></script>
+		
+     <script type="text/javascript">
+
+
+      window.onload=function(){
+        if(<{$d.b_monbreakfast}>==1){
+          document.getElementsByName('b_monbreakfast')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_monbreakfast')[0].checked='checked';
+        }
+                if(<{$d.b_monlunch}>==1){
+          document.getElementsByName('b_monlunch')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_monlunch')[0].checked='checked';
+        }
+                if(<{$d.b_monsupper}>==1){
+          document.getElementsByName('b_monsupper')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_monsupper')[0].checked='checked';
+        }
+                if(<{$d.b_tuebreakfast}>==1){
+          document.getElementsByName('b_tuebreakfast')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_tuebreakfast')[0].checked='checked';
+        }
+                if(<{$d.b_tuelunch}>==1){
+          document.getElementsByName('b_tuelunch')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_tuelunch')[0].checked='checked';
+        }
+                if(<{$d.b_tuesupper}>==1){
+          document.getElementsByName('b_tuesupper')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_tuesupper')[0].checked='checked';
+        }
+                if(<{$d.b_wedbreakfast}>==1){
+          document.getElementsByName('b_wedbreakfast')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_wedbreakfast')[0].checked='checked';
+        }
+                if(<{$d.b_wedlunch}>==1){
+          document.getElementsByName('b_wedlunch')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_wedlunch')[0].checked='checked';
+        }
+                if(<{$d.b_wedsupper}>==1){
+          document.getElementsByName('b_wedsupper')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_wedsupper')[0].checked='checked';
+        }
+                if(<{$d.b_thubreakfast}>==1){
+          document.getElementsByName('b_thubreakfast')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_thubreakfast')[0].checked='checked';
+        }
+                if(<{$d.b_thulunch}>==1){
+          document.getElementsByName('b_thulunch')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_thulunch')[0].checked='checked';
+        }
+          if(<{$d.b_thusupper}>==1){
+          document.getElementsByName('b_thusupper')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_thusupper')[0].checked='checked';
+        }
+                if(<{$d.b_fribreakfast}>==1){
+          document.getElementsByName('b_fribreakfast')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_fribreakfast')[0].checked='checked';
+        }
+                if(<{$d.b_frilunch}>==1){
+          document.getElementsByName('b_frilunch')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_frilunch')[0].checked='checked';
+        }
+                if(<{$d.b_frisupper}>==1){
+          document.getElementsByName('b_frisupper')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_frisupper')[0].checked='checked';
+        }
+                if(<{$d.b_satbreakfast}>==1){
+          document.getElementsByName('b_satbreakfast')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_satbreakfast')[0].checked='checked';
+        }
+                if(<{$d.b_satlunch}>==1){
+          document.getElementsByName('b_satlunch')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_satlunch')[0].checked='checked';
+        }
+                if(<{$d.b_satsupper}>==1){
+          document.getElementsByName('b_satsupper')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_satsupper')[0].checked='checked';
+        }
+                if(<{$d.b_sunbreakfast}>==1){
+          document.getElementsByName('b_sunbreakfast')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_sunbreakfast')[0].checked='checked';
+        }
+                if(<{$d.b_satlunch}>==1){
+          document.getElementsByName('b_sunlunch')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_sunlunch')[0].checked='checked';
+        }
+                if(<{$d.b_sunsupper}>==1){
+          document.getElementsByName('b_sunsupper')[1].checked='checked';
+        }else{
+          document.getElementsByName('b_sunsupper')[0].checked='checked';
+        }
+      }
+    </script>
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">修改服务员信息</h2>
+    </div>
+    <form action='__URL__/do_modify' method='post' name='myForm'>
+       <ul class="ulColumn">
+       <li>
+        <input type="hidden" name="b_id" value="<{$d.b_id}>" /> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">座位数：</span>
+        <input type="text" name="b_seats" value="<{$d.b_seats}>" class="textbox textbox_295"
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">区域：</span>
+        <textarea  class="textarea" name="b_block" style="width:500px;height:100px;"><{$d.b_block}> </textarea>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">定金：</span>
+        <input type="text" name="b_deposit" value="<{$d.b_deposit}>"class="textbox textbox_295" />
+       </li>
+       <br/>
+     <li>
+        <span class="item_name" style="width:120px;" font="font-size:24px">预定状况：</span>
+       </li>
+       <br/>
+       <li>
+        <span class="item_name" style="width:120px;" font="font-size:24px">周一：</span>
+       </li>
+    
+
+         <li>
+        <span class="item_name" style="width:120px;">早上</span>
+        <label class="single_selection"><input type="radio" name="b_monbreakfast" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_monbreakfast" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">中午</span>
+        <label class="single_selection"><input type="radio" name="b_monlunch" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_monlunch" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">晚上</span>
+        <label class="single_selection"><input type="radio" name="b_monsupper" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_monsupper" value='1'/>已预订</label>
+       </li>
+       <br/>
+           <li>
+        <span class="item_name" style="width:120px;" font="font-size:24px">周二：</span>
+       </li>
+    
+
+         <li>
+        <span class="item_name" style="width:120px;">早上</span>
+        <label class="single_selection"><input type="radio" name="b_tuebreakfast" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_tuebreakfast" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">中午</span>
+        <label class="single_selection"><input type="radio" name="b_tuelunch" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_tuelunch" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">晚上</span>
+        <label class="single_selection"><input type="radio" name="b_tuesupper" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_tuesupper" value='1'/>已预订</label>
+       </li>
+       <br/>
+              <li>
+        <span class="item_name" style="width:120px;" font="font-size:24px">周三：</span>
+       </li>
+    
+
+         <li>
+        <span class="item_name" style="width:120px;">早上</span>
+        <label class="single_selection"><input type="radio" name="b_wedbreakfast" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_wedbreakfast" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">中午</span>
+        <label class="single_selection"><input type="radio" name="b_wedlunch" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_wedlunch" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">晚上</span>
+        <label class="single_selection"><input type="radio" name="b_wedsupper" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_wedsupper" value='1'/>已预订</label>
+       </li>
+       <br/>
+              <li>
+        <span class="item_name" style="width:120px;" font="font-size:24px">周四：</span>
+       </li>
+    
+
+         <li>
+        <span class="item_name" style="width:120px;">早上</span>
+        <label class="single_selection"><input type="radio" name="b_thubreakfast" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_thubreakfast" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">中午</span>
+        <label class="single_selection"><input type="radio" name="b_thulunch" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_thulunch" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">晚上</span>
+        <label class="single_selection"><input type="radio" name="b_thusupper" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_thusupper" value='1'/>已预订</label>
+       </li>
+       <br/>
+              <li>
+        <span class="item_name" style="width:120px;" font="font-size:24px">周五：</span>
+       </li>
+    
+
+         <li>
+        <span class="item_name" style="width:120px;">早上</span>
+        <label class="single_selection"><input type="radio" name="b_fribreakfast" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_fribreakfast" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">中午</span>
+        <label class="single_selection"><input type="radio" name="b_frilunch" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_frilunch" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">晚上</span>
+        <label class="single_selection"><input type="radio" name="b_frisupper" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_frisupper" value='1'/>已预订</label>
+       </li>
+       <br/>
+              <li>
+        <span class="item_name" style="width:120px;" font="font-size:24px">周六：</span>
+       </li>
+    
+
+         <li>
+        <span class="item_name" style="width:120px;">早上</span>
+        <label class="single_selection"><input type="radio" name="b_satbreakfast" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_satbreakfast" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">中午</span>
+        <label class="single_selection"><input type="radio" name="b_satlunch" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_satlunch" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">晚上</span>
+        <label class="single_selection"><input type="radio" name="b_satsupper" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_satsupper" value='1'/>已预订</label>
+       </li>
+       <br/>
+              <li>
+        <span class="item_name" style="width:120px;" font="font-size:24px">周日：</span>
+       </li>
+    
+
+         <li>
+        <span class="item_name" style="width:120px;">早上</span>
+        <label class="single_selection"><input type="radio" name="b_sunbreakfast" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_sunbreakfast" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">中午</span>
+        <label class="single_selection"><input type="radio" name="b_sunlunch" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_sunlunch" value='1'/>已预订</label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">晚上</span>
+        <label class="single_selection"><input type="radio" name="b_sunsupper" value='0' checked="checked"/>未预订</label>
+        <label class="single_selection"><input type="radio" name="b_sunsupper" value='1'/>已预订</label>
+       </li>
+       <br/>
+     
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+  </body>
+</html>

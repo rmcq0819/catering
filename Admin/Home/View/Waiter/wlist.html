@@ -1,0 +1,65 @@
+ <!DOCTYPE html> 
+  <html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>服务员信息</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+    <script src="__JS__/jquery.js"></script>
+    <script type="text/javascript">
+      window.onload=function(){  
+        $("#condi ").val(<{$condi}>); // 设置Select的Value值为<{$d.c_id}>的项选中 
+      }
+  
+    </script>
+  </head>
+  <body>
+ <section>
+    <div class="page_title">
+     <h2 class="fl">服务员信息</h2>
+    </div>
+   <center>
+    <form action='__URL__/search' method='get'>
+    请选择搜索条件:
+      <select class="select" name="condi" id="condi">
+         <option  value="1">忙碌</option>
+          <option  value="2">空闲</option>
+        </select>
+      <input type='submit' class="link_btn" value='搜索'/>
+    </form></center>
+    <table class="table">
+     <tr>
+      <th>编号</th>
+       <th>姓名</th>
+      <th>性别</th>
+      <th>年龄</th>
+      <th>状态</th>
+      <th>服务桌号</th>
+      <th>操作</th>
+     </tr>
+    <foreach name='list' item='v'>
+     <tr>
+      <td><center><{$v.w_id}></center></td>
+      <td><center><{$v.w_name}></center></td>
+      <td><center>
+     <if condition="$v.w_sex eq 0">女<else />男</if>
+       </center></td>
+        <td><center><{$v.w_age}></center></td>
+        <td><center><{$v.w_state}></center></td>
+         <td><center><{$v.w_desk}></center></td>
+      <td><center>
+      <if condition="$v.w_state eq '忙碌'"> <a href="__URL__/release?w_id=<{$v.w_id}>" class="inner_btn">结束服务</a><else /></if>
+       <a href="__APP__/Home/Waiter/modify?w_id=<{$v.w_id}>" class="inner_btn">修改</a>
+       <a href="__APP__/Home/Waiter/do_delete?w_id=<{$v.w_id}>" class="inner_btn" onclick=" return confirm('确定删除?');">删除</a>
+      </center></td>
+     </tr>
+    </foreach>
+    </table>
+    <aside class="paging">
+    <{$show}>
+    </aside>
+   </section> 
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>添加菜品信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+		<script src="__JS__/jquery.js"></script>
+
+    <script type="text/javascript">
+     $(function(){
+        $('input[name="d_id"]').blur(function(){
+          var d_id=$(this).val();
+            $.get('__URL__/checkId',{'d_id':d_id},function(data){
+            //alert(data);
+            if(data=='超界'){
+              $('#id').html('编号应由6位的数字组成');
+            }else if(data=='已存在'){
+              $('#id').html('该编号已存在');
+            }else{
+              $('#id').html('');
+            }
+          });
+        });
+      });
+
+
+     
+    </script>
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">添加菜品信息</h2>
+    </div>
+    <form action='__URL__/do_add' method='post' name='myForm'>
+      <ul class="ulColumn">
+      <input type="hidden" name="d_exist" value="1"/> 
+       <li>
+        <span class="item_name" style="width:120px;">编号：</span>
+        <input type="text" name="d_id" class="textbox textbox_295" placeholder="必填：由6位的数字组成..."/>
+         <span id="id" class="errorTips"></span> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">名称：</span>
+        <input type="text" name="d_name" class="textbox textbox_295" placeholder="必填：名称长度不超过32..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">原价：</span>
+        <input type="text" name="d_price" class="textbox textbox_295" placeholder="必填..."/>
+       </li>
+      <li>
+        <span class="item_name" style="width:120px;">现价：</span>
+        <input type="text" name="d_disprice" class="textbox textbox_295"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">分类：</span>
+       <select class="select" name="c_id" >
+        <foreach name='list' item='v'>
+         <option  value="<{$v.c_id}>"><{$v.c_name}></option>
+         </foreach>
+        </select>
+        <input type="checkbox" name="d_new" value="1" />新品 
+        <input type="checkbox" name="d_hot" value="1" />热销
+       </li>  
+
+       <li>
+        <span class="item_name" style="width:120px;">简介：</span>
+        <textarea  class="textarea" name="d_description" style="width:500px;height:100px;"></textarea>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">上传图片：</span>
+        <label class="uploadImg">
+         <input type="file" name="d_pic"/>
+         <span>上传图片</span>
+        </label>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">供应量：</span>
+        <input type="text" name="d_account" class="textbox textbox_295" placeholder="必填..."/>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">备注：</span>
+       <textarea class="textarea" name="d_extra" style="width:500px;height:100px;"></textarea>
+       </li>
+
+   
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+	</body>
+</html>

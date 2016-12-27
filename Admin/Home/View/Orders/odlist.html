@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>订单条目</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+  <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+ 
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">订单条目</h2>
+    </div>
+  
+     <section>
+     <ul>
+    <input type="hidden" name="y_openid" value="<{$_GET['y_openid']}>" />
+  	<foreach name='list' item='v'>
+      <li> 
+      
+        <span class="item_name" style="width:120px;"><{$v.r_id}></span>
+       
+       </li>
+    </foreach>
+    <li>
+     <a href="__URL__/do_send?y_openid=<{$_GET['y_openid']}>" class="link_btn">返回给顾客</a>
+     </li>
+    </ul>
+     </section>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>添加活动信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+		<script src="__JS__/jquery.js"></script>
+
+    <script type="text/javascript">
+     $(function(){
+        $('input[name="a_id"]').blur(function(){
+          var a_id=$(this).val();
+            $.get('__URL__/checkId',{'a_id':a_id},function(data){
+            //alert(data);
+            if(data=='超界'){
+              $('#id').html('编号应由6位的数字组成');
+            }else if(data=='已存在'){
+              $('#id').html('该编号已存在');
+            }else{
+              $('#id').html('');
+            }
+          });
+        });
+      });
+    </script>
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">添加活动信息</h2>
+    </div>
+    <form action='__URL__/do_add' method='post' name='myForm'>
+      <ul class="ulColumn">
+      <input type="hidden" name="a_exist" value="1"/> 
+       <li>
+        <span class="item_name" style="width:120px;">编号：</span>
+        <input type="text" name="a_id" class="textbox textbox_295" placeholder="必填：由6位的数字组成..."/> 
+        <span id="id" class="errorTips"></span>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;" placeholder="必填...">开始时间：</span>
+        <input type="text" name="a_startdate" class="textbox textbox_295" placeholder="必填：格式为Y-m-d..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;" placeholder="必填...">结束时间：</span>
+        <input type="text" name="a_enddate" class="textbox textbox_295" placeholder="必填：格式为Y-m-d..."/>
+       </li>
+           <li>
+        <span class="item_name" style="width:120px;">描述：</span>
+        <input type="text" name="a_description" class="textbox textbox_295"/>
+       </li>
+           <li>
+        <span class="item_name" style="width:120px;" placeholder="必填：长度不超过36...">类型：</span>
+        <input type="text" name="a_classfication" class="textbox textbox_295" placeholder="必填：长度不超过36..."/>
+       </li>
+
+       <li>
+        <span class="item_name" style="width:120px;" >状态：</span>
+        <input type="text" name="a_state" class="textbox textbox_295" placeholder="必填：长度不超过10..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+	</body>
+</html>

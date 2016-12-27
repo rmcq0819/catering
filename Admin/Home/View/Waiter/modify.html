@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>修改服务员信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+		<script src="__JS__/jquery.js"></script>
+   <script type="text/javascript">
+
+
+      window.onload=function(){
+        if(<{$w.w_sex}>==0){
+          document.getElementsByName('w_sex')[1].checked='checked';
+        }else{
+          document.getElementsByName('w_sex')[0].checked='checked';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <section>
+    <div class="page_title">
+     <h2 class="fl">修改服务员信息</h2>
+    </div>
+    <form action='__URL__/do_modify' method='post' name='myForm'>
+      <ul class="ulColumn">
+        <input type="hidden" name="w_id" value="<{$w.w_id}>"/> 
+       <li>
+        <span class="item_name" style="width:120px;">姓名：</span>
+        <input type="text" name="w_name" class="textbox textbox_295" value="<{$w.w_name}>"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">年龄：</span>
+        <input type="text" name="w_age" class="textbox textbox_295" value="<{$w.w_age}>"/>
+       </li>
+          <li>
+        <span class="item_name" style="width:120px;">状态</span>
+        <input type="text" name="w_state" class="textbox textbox_295" value="<{$w.w_state}>"/>
+       </li>
+        <li>
+        <span class="item_name" style="width:120px;">性别：</span>
+        <label class="single_selection"><input type="radio" name="w_sex" value='1'/>男</label>
+        <label class="single_selection"><input type="radio" name="w_sex" value='0'/>女</label>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+  </body>
+</html>

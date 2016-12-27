@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>评价</title>
+<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+  <!--[if lt IE 9]>
+    <script src="__JS__/html5.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+<!--header-->
+<header>
+</header>
+<body>
+  <section>
+    <div class="page_title">
+     <h2 class="fl"><center>评价</center></h2>
+    </div>
+    <form action='__URL__/do_judge' method='post' name='myForm'>
+    <ul class="ulColumn">
+     <input type="hidden" name="j_openid" value="<{$_GET['j_openid']}>"/>
+      <input type="hidden" name="j_nickname" value="<{$_GET['j_nickname']}>"/>
+     
+        <input type="hidden" name="j_headimgurl" value="<{$_GET['j_headimgurl']}>"/>
+
+       <li>
+        <span class="item_name" style="width:120px;">评价：</span>
+        <textarea  class="textarea" name="j_judgement" style="width:500px;height:100px;"></textarea>
+       </li>
+            
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+    </section>
+  </body>
+</html>
+ 

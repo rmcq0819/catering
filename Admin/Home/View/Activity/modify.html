@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>修改服务员信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">修改服务员信息</h2>
+    </div>
+    <form action='__URL__/do_modify' method='post' name='myForm'>
+    <ul class="ulColumn">
+       <li>
+        <input type="hidden" name="a_id" value="<{$a.a_id}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">开始时间：</span>
+        <input type="text" name="a_startdate" class="textbox textbox_295" value="<{$a.a_startdate}>"placeholder="必填：格式为Y-m-d..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">结束时间：</span>
+        <input type="text" name="a_enddate" class="textbox textbox_295" value="<{$a.a_enddate}>"placeholder="必填：格式为Y-m-d..."/>
+       </li>
+           <li>
+        <span class="item_name" style="width:120px;">描述：</span>
+        <input type="text" name="a_description" class="textbox textbox_295"value="<{$a.a_description}>"/>
+       </li>
+           <li>
+        <span class="item_name" style="width:120px;">类型：</span>
+        <input type="text" name="a_classfication" class="textbox textbox_295" value="<{$a.a_classfication}>" placeholder="必填：长度不超过36..."/>
+       </li>
+
+       <li>
+        <span class="item_name" style="width:120px;">状态：</span>
+        <input type="text" name="a_state" class="textbox textbox_295" value="<{$a.a_state}>" placeholder="必填：长度不超过10..."/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+  </body>
+</html>

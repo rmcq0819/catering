@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>修改菜品信息</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+		<script src="__JS__/jquery.js"></script>
+    <script type="text/javascript">
+      window.onload=function(){  
+        $("#c_id ").val(<{$d.c_id}>); // 设置Select的Value值为<{$d.c_id}>的项选中 
+        if(<{$d.d_new}>==1){
+          document.getElementsByName('d_new')[0].checked=true;
+        }
+        if(<{$d.d_hot}>==1){
+          document.getElementsByName('d_hot')[0].checked=true;
+        }
+      }
+  
+    </script>
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">修改菜品信息</h2>
+    </div>
+    <form action='__URL__/do_modify' method='post' name='myForm'>
+    <ul class="ulColumn">
+       <li>
+        <input type="hidden" name="d_id" value="<{$d.d_id}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">名称：</span>
+        <input type="text" name="d_name" class="textbox textbox_295" value="<{$d.d_name}>"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">原价：</span>
+        <input type="text" name="d_price" class="textbox textbox_295" value="<{$d.d_price}>"/>
+       </li>
+      <li>
+        <span class="item_name" style="width:120px;">现价：</span>
+        <input type="text" name="d_disprice" class="textbox textbox_295" value="<{$d.d_disprice}>"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">分类：</span>
+       <select class="select" name="c_id" id="c_id">
+        <foreach name='list' item='v'>
+         <option  value="<{$v.c_id}>"><{$v.c_name}></option>
+         </foreach>
+        </select>
+        <input type="checkbox" name="d_new" value="1" />新品 
+        <input type="checkbox" name="d_hot" value="1" />热销
+       </li>  
+
+       <li>
+        <span class="item_name" style="width:120px;">简介：</span>
+        <textarea  class="textarea" name="d_description" style="width:500px;height:100px;"><{$d.d_description}></textarea>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">上传图片：</span>
+        <label class="uploadImg">
+         <input type="file" name="d_pic" />
+         <span>上传图片</span>
+        </label>
+         <span class="errorTips">请重新上传图片！</span>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">供应量：</span>
+        <input type="text" name="d_account" class="textbox textbox_295" value="<{$d.d_account}>"/>
+       </li>
+         <li>
+        <span class="item_name" style="width:120px;">备注：</span>
+       <textarea  class="textarea" name="d_extra" style="width:500px;height:100px;"><{$d.d_extra}></textarea>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<title>修改餐桌菜品记录</title>
+		<link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+		<!--[if lt IE 9]>
+		<script src="__JS__/html5.js"></script>
+		<![endif]-->
+	
+	</head>
+	<body>
+	  <section>
+    <div class="page_title">
+     <h2 class="fl">修改餐桌菜品记录</h2>
+    </div>
+    <form action='__URL__/do_modify' method='post' name='myForm'>
+      <ul class="ulColumn">
+       <li>
+        <input type="hidden" name="o_id" value="<{$odd.o_id}>"/> 
+         <input type="hidden" name="d_id" value="<{$odd.d_id}>"/> 
+          <input type="hidden" name="r_id" value="<{$odd.r_id}>"/> 
+       </li>
+       <li>
+      
+        <li>
+        <span class="item_name" style="width:120px;">菜品名称：</span>
+        <input type="text" name="u_dish" class="textbox textbox_295" value="<{$od.u_dish}>"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">原价：</span>
+        <input type="text" name="u_price" class="textbox textbox_295" value="<{$od.u_price}>"/>
+       </li>
+              <li>
+        <span class="item_name" style="width:120px;">促销价：</span>
+        <input type="text" name="u_disprice" class="textbox textbox_295" value="<{$od.u_disprice}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">数量：</span>
+        <input type="text" name="u_account" class="textbox textbox_295" value="<{$od.u_account}>"/>
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">总额：</span>
+        <input type="text" name="u_amount" class="textbox textbox_295" value="<{$od.u_amount}>"/>
+       </li>
+        <li>
+        <span class="item_name" style="width:120px;">折后总额：</span>
+        <input type="text" name="u_disamount" class="textbox textbox_295" value="<{$od.u_disamount}>"/>
+       </li>
+              <li>
+        <span class="item_name" style="width:120px;">口味：</span>
+        <input type="text" name="u_flavor" class="textbox textbox_295" value="<{$od.u_flavor}>"/> 
+       </li>
+       <li>
+        <span class="item_name" style="width:120px;">状态：</span>
+        <input type="text" name="u_remark" class="textbox textbox_295" value="<{$od.u_state}>"/>
+       </li>
+      
+       <li>
+        <span class="item_name" style="width:120px;"></span>
+        <input type="submit" class="link_btn"/>
+       </li>
+      </ul>
+      </form>
+     </section>
+  </body>
+</html>
